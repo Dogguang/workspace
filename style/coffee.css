@@ -4,7 +4,7 @@
 #head{
     text-align: center;
     background-color:#ffec3d;
-    line-height: 80px;
+    line-height: 110px;
 }
 #image-top{
     width: 40px;
@@ -16,10 +16,9 @@ img:hover{
 }
 #navigation{ 
     background-color: #13c2c2;
-    width: 300px;
     vertical-align: top;
     background-attachment: fixed;
-    display: inline-block; 
+    float: left; 
     width: 25%;
     position: sticky;
     top: 0;
@@ -49,10 +48,10 @@ a{
     padding: 8px 16px;
 }
 li a:hover{
-    background-color: #595959;
+    background-color: #595959;/*悬浮变色*/
 }
 li a:active{
-    background-color: tomato;
+    background-color: tomato;/*点击变色*/
 } 
 .center{
     text-align:center;
@@ -64,11 +63,12 @@ li a:active{
     width: 80%;
 }
 #table tr td:last-child::before{
-    content: '$';
+    content: '￥';
 }
 .content{
-    display: inline-block;
-    width: 74%;
+    background-color: white;
+    float: left;
+    width: 75%;
 }
 .book{
     padding: 10px;
@@ -77,17 +77,26 @@ li a:active{
     width: 100px;
     height: 100px; 
 }
-#footer{
-    background-color: #ffec3d;
-    text-align: center;
-    line-height: 80px;
-}
+
 p:first-letter{
     font-size: 32px;
 }
 p{
     text-indent: 2em;
 }
-#banner{
-
+#footer{
+    background-color: #ffec3d;
+    text-align: center;
+    line-height: 110px;
+}
+#content-body{
+    background-color:#13c2c2;
+}
+#content-body:after{
+        content: "";
+        height: 0;
+        clear: both;
+        overflow: hidden;
+        display: block;
+        visibility: hidden;
 }
