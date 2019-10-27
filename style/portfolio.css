@@ -1,0 +1,103 @@
+*{
+    margin: 0px;
+ }
+ /*头部*/
+#head{
+    background-color: #ffec3d;
+    line-height:80px;
+    padding: 0% 10% 0 10%;
+}
+#logo{
+    width: 60px;
+    height: 60px;
+    vertical-align: middle;
+}
+#head-left{
+    float: left;
+    vertical-align: middle;
+}
+#head ul{
+    list-style-type: none;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+#head a{
+    text-decoration: none;
+    color:#000000;
+}
+#head ul li{
+    float:right;
+    padding-right: 10px;
+}
+li:hover{
+    background-color: #fadb14;
+}
+/*内容*/
+.content img{
+    width: 100%;
+}
+.juli{
+    margin: 5px;
+    padding: 5px;
+    background-color: #ffe58f;
+}
+.juli:hover{
+    opacity: 0.4;
+    border: 1px solid black;
+}
+.text{
+    text-align: center;
+    padding: 10px;
+}
+.content a{
+    text-decoration: none;
+    color:#000000;
+}
+.content{
+    padding: 0% 10% 0 10%;
+}
+.content:after{      /*列后清除浮动*/
+    content: "";
+    display: table;
+    clear: both;
+}
+.content hr{
+    width: 5%;
+    border: 2px solid #873800;
+    margin: auto;
+}
+.column{
+    float: left;
+    width: 25%;
+}
+.column:after{
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/*尾部*/
+.text-center{
+    text-align: center;
+}
+#footer{
+    width: 100%;
+    background-color: #ffec3d;
+    height: 200;
+    overflow: hidden;
+}
+#footer-content{
+    padding: 20px 10% 20px 10%;
+    overflow: hidden;
+}
+#footer img{
+    width: 120px;
+    float: right;
+}
+#footer hr{
+    width: 80%;
+    height: 1px;
+    border: 0.2px solid black;
+    margin: auto;
+}
