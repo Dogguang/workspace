@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>game list</title>
+    <link rel="stylesheet" href="style/qyz.css">
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+    <style>
+        h4{
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+        <div style="background-color: #9254de; position: fixed;top: 0px;width: 100%;">
+            <div id="head">
+                <div id="head-left"><img src="images/太阳logo.png" alt="logo" id="logo">一米扬光</div>
+                <ul>
+                    <li><a href="#here">撩一撩</a></li>
+                    <li><a href="about.html">关于我们</a></li>
+                    <li><a href="news.html">游戏列表</a></li>
+                    <li><a href="index.html">首页</a></li>
+                </ul>
+            </div>
+        </div>
+        <h2 class="text-center">游戏列表</h2>
+        <div class="content">
+            <!-- <div style="float:left;width:600px;height: 230px;">
+                <div style="float: right;width: 370px;height: 230px;">
+                    <h4>什么是桌游</h4>
+                    <p>019-11-0</p>
+                    <hr>
+                    <p>在中国外狭义上会把需要演绎流程的推理游戏称作谋杀之谜，而在中国内会把所有广义狭义的谋杀之谜游戏都称作剧本杀。派对中的一名宾客在其他人不知道的情况下秘密扮演凶手的角色，而其他宾客作为玩家需要通过调查和推理寻找出凶手。
+                    </p>
+                </div>
+                <img src="images/关于桌游.jpg" alt="" class="image-left" style="width: 230px;height: 230px">
+            </div>
+            <div style="float:left;width: 600px;height: 230px;">
+                <div style="float: right;width: 370px;height: 230px;">
+                    <h4>什么是桌游</h4>
+                    <p>019-11-0</p>
+                    <hr>
+                    <p>在中国外狭义上会把需要演绎流程的推理游戏称作谋杀之谜，而在中国内会把所有广义狭义的谋杀之谜游戏都称作剧本杀。派对中的一名宾客在其他人不知道的情况下秘密扮演凶手的角色，而其他宾客作为玩家需要通过调查和推理寻找出凶手。
+                    </p>
+                </div>
+                <img src="images/关于桌游.jpg" alt="" class="image-left" style="width: 230px;height: 230px">
+            </div> -->
+        </div>
+        <nav aria-label="Page navigation" style="text-align: center;">
+                <ul class="pagination">
+                  <!-- <li>
+                    <a href="#" aria-label="Previous">
+                      <span aria-hidden="true">&laquo;</span>
+                    </a>
+                  </li> -->
+                  <li><a href="#">1</a></li>
+                  <li><a href="#">2</a></li>
+                  <li><a href="#">3</a></li>
+                  <li><a href="#">4</a></li>
+                  <li><a href="#">5</a></li>
+                  <!-- <li>
+                    <a href="#" aria-label="Next">
+                      <span aria-hidden="true">&raquo;</span>
+                    </a>
+                  </li> -->
+                </ul>
+              </nav>
+        <div style="background-color: #9254de;">
+            <div id="footer">
+                <div id="footer-content">
+                    <div class="column">
+                        <div style="margin: auto;width: 80px;"><img src="images/地图logo.png" alt="" class="logo"></div>
+                        <div class="text">福州市闽侯县闽江学院</div>
+                    </div>
+                    <div class="column">
+                        <div style="margin: auto;width: 80px;"><img src="images/信封logo.png" alt="" class="logo"></div>
+                        <div class="text">457444894@qq.con</div>
+                    </div>
+                    <div class="column">
+                        <div style="margin: auto;width: 80px;"><img src="images/客服logo.png" alt="" class="logo"></div>
+                        <div class="text">18120859689</div>
+                    </div>
+                    <div class="column">
+                        <div style="margin: auto;width: 120px;"><img src="images/二维码.png" alt="Dogguang的二维码" id="here"></div>
+                        <div class="text">欢迎联系我们体验哦</div>
+                    </div>
+                </div>
+                <hr>
+                <div>
+                    <p class="text-center">版权所有©Dogguang</p>
+                </div>
+            </div>
+        </div>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script>
+            function list(){
+            axios.get('./qyz-data/new1')
+            .then(function(res){
+                console.log('res',res.data)
+                for (var index in res.data){
+                    $('.content').append('<a href="news-detail.html?id='+res.data[index].id+'"  style="color:#000000"><div style="float:left;width: 600px;height: 230px;margin-top: 10px;"><div style="float: right;width: 370px;height: 230px;padding: 15px;"><h4>'+res.data[index].title+'</h4><p>'+res.data[index].date+'</p><hr><p>'+res.data[index].content+'</p></div><img src="'+res.data[index].img+'" alt="" class="image-left" style="width: 230px;height: 230px"></div></a>');
+                }
+            })
+            .catch(function(error){alert("请求失败")})
+        }
+            function list1(a){
+            axios.get('./qyz-data/new'+a)
+            .then(function(res){
+                console.log('res',res.data)
+                $('.content div').remove();
+                for (var index in res.data){
+                    $('.content').append('<a href="news-detail.html?id='+res.data[index].id+'"  style="color:#000000"><div style="float:left;width: 600px;height: 230px;margin-top: 10px;"><div style="float: right;width: 370px;height: 230px;padding: 15px;"><h4>'+res.data[index].title+'</h4><p>'+res.data[index].date+'</p><hr><p>'+res.data[index].content+'</p></div><img src="'+res.data[index].img+'" alt="" class="image-left" style="width: 230px;height: 230px"></div></a>');
+                }
+            })
+            .catch(function(error){alert("请求失败")})
+        }
+        $(document).ready(function(){
+            list();
+            $('.pagination a').click(function(){
+                var a=$(this).text();
+                list1(a);
+            })
+            
+        });
+        </script>
+</body>
+</html>
