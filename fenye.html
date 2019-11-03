@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>fenye</title>
+    <style>
+        .spinner{
+            animation: rotation 3s linear infinite;
+            width: 32px;
+            height: 32px;
+            padding: 8px;
+             
+        }
+        @keyframes rotation{
+            0%{transform: rotate(0deg);}
+            100%{transform: rotate(360deg);}
+        }
+        .loading{
+            position: absolute;
+            top:0;
+            left: 160px;
+            width: 1200px;
+            height: 100%;
+            z-index: 9999;
+            background-color: rgba(0,0,0,0.2);
+        }
+        .loading-container{
+            position: relative;
+        }
+        .text-center{
+            text-align: center;
+        }
+        .table{
+            text-align: center;
+            border-collapse: collapse;
+            margin:0 auto;
+            width: 1200px;
+        }
+        .table th{
+            border-bottom:1px solid black;
+        }
+        .table td{
+            border-bottom:1px solid black;
+            width: 33%;
+        }
+        ul{
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        a{
+            color:#000000;
+            text-decoration: none;
+            display: block;
+            padding: 8px 16px;
+            
+        }
+        li a:hover:not(.active){
+            background-color: #73d13d;
+        }
+        .active {
+            background-color: #73d13d;
+        }
+        ul li{
+            float:right;
+            border: 1px solid black;
+            margin: 20px 2px 20px 2px;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+    <h2 class="text-center">商品列表</h2>
+    <div class="loading-container">
+        <table id="goods" class="table">
+            <tr>
+                <th>品名</th>
+                <th>价格</th>
+                <th>日期</th>
+            </tr>
+        </table>
+        <div class="loading"><div style="margin: auto; width: 32px;height: 32px;padding: 8px;"><img src="images/读取.png" alt="" class="spinner"></div></div>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="#">5</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">1</a></li>
+        </ul>
+    </nav>
+    
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        function tiaozhuan(a){
+            axios.get('http://mock-api.com/mnEZXbKJ.mock/products?page='+a)
+        .then(function(res){
+            console.log('res',res.data)
+            $('.loading').hide();
+            $('#goods td').remove();
+            for (var index in res.data){
+                $('#goods').remove('tr td');
+                $('#goods').append('<tr>'+'<td>'+res.data[index].name+'</td>'+'<td>'+ res.data[index].price+'</td>'+'<td>'+res.data[index].date+'</td>'+'</tr>');
+            }
+        })
+        }
+        
+        $(document).ready(function () {
+            $('.loading').hide();
+                $('a').click(function () {
+                    var a=$(this).text();
+                    tiaozhuan(a);
+                    $('a').removeClass('active');
+                    $(this).addClass('active');
+                    $('#goods').addClass('table');
+                    $('.loading').show();
+                });
+                
+            });
+    </script>
+</body>
+</html>

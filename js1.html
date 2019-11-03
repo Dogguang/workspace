@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=h1, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    
+</head>
+<body>
+    <h1>基础示例</h1>
+    <span id="demo">测试内容</span>
+    <script>
+        var el=document.getElementById('demo')
+        el.innerHTML="hello javascript"
+    </script>
+
+
+    <img src="images/logo.png" alt="" id="image" onclick="changeImage();">
+    <script>
+        function changeImage(){
+            var el=document.getElementById("image");
+            if(el.src.match('coffee')){
+                el.src='images/logo.png';
+            }else{
+                el.src='images/coffee cap.jpg';
+            }
+        }
+    </script>
+    <br>
+    <br>
+    <button type="button" onclick="add()">+</button>
+    <span id="number">0</span>
+    <button type="button" onclick="reduce()">-</button>
+    <script>
+        function add(){
+            var el=document.getElementById('number');
+            el.innerHTML++;
+        }
+        function reduce(){
+            var el=document.getElementById('number');
+            if (el.innerHTML>0){el.innerHTML--;}
+        }
+    </script>
+</body>
+</html>
