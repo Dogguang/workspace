@@ -1,0 +1,133 @@
+*{
+    margin: 0;
+}
+body{
+    padding-top: 90px;
+}
+/*头部*/
+#head{
+    background-color: #9254de;
+    line-height:80px;
+    margin: auto;
+    width: 1200px;
+}
+#head #logo{
+    width: 60px;
+    height: 60px;
+    vertical-align: middle;
+}
+#head-left{
+    float: left;
+    vertical-align: middle;
+}
+#head ul{
+    list-style-type: none;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+#head a{
+    text-decoration: none;
+    color:#000000;
+}
+#head ul li{
+    float:right;
+    padding-right: 10px;
+}
+/* li:hover{
+    background-color: #595959;
+} */
+/*内容*/
+.content{
+    margin: auto;
+    width: 1200px;
+    overflow: hidden;
+}
+.content2{
+    margin: auto;
+    width: 1200px;
+    overflow: hidden;
+    height: 500px;
+}
+.line1{
+    margin-top: 10px;
+}
+.line1:after{
+    content: "";
+    display: table;
+    clear: both;
+}
+h4{
+    margin: 50px 0 50px 0;
+}
+p{
+    margin: 10px;
+}
+hr{
+    width: 80%;
+    height: 1px;
+    border: 0.2px solid black;
+    margin: auto;
+}
+.image{
+    width: 600px;
+    height: 500px;
+}
+.image-left{
+    float: left;
+}
+.image-right{
+    float: right;
+}
+.content1-content{
+    background-color: #e8e8e8;
+    padding: 20px 0 20px 0;
+    overflow: hidden;
+}
+.content-block{
+    display: inline-block;
+    width: 24.5%;
+    vertical-align: middle;
+}
+.content3-block{
+    float: right;
+    width: 24%;
+    margin-left:10px;
+}
+/*尾部*/
+.text-center{
+    text-align: center;
+}
+#footer{
+    background-color: #9254de;
+    overflow: hidden;
+    margin: auto;
+    width: 1200px;
+}
+#footer-content{
+    padding: 20px 0 20px 0;
+    overflow: hidden;
+    width: 1200px;
+}
+#footer img{
+    width: 120px;
+    margin: auto;
+}
+#footer .logo{
+    width: 80px;
+}
+#footer .column{
+    display: inline-block;
+    width: 24%;
+    vertical-align: middle;
+}
+.column .text{
+    text-align: center;
+    color: #bfbfbf;
+}
+#footer hr{
+    width: 30%;
+    height: 1px;
+    border: 0.2px solid black;
+    margin: auto;
+}
