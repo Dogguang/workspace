@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>game-detail</title>
+    <link rel="stylesheet" href="style/qyz.css">
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+    <style>
+        #img{
+            text-align: center;
+            width: 100%;
+        }
+        #img img{
+            width: 600px;
+        }
+        #title{
+            border-left:10px solid #820014;
+            padding-left: 10px;
+        }
+        #date{
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div style="background-color: #9254de; position: fixed;top: 0px;width: 100%;">
+        <div id="head">
+            <div id="head-left"><img src="images/太阳logo.png" alt="logo" id="logo">一米扬光</div>
+            <ul>
+                <li><a href="#here">撩一撩</a></li>
+                <li><a href="about.html">关于我们</a></li>
+                <li><a href="news.html">游戏列表</a></li>
+                <li><a href="index.html">首页</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="content">
+        <div style="background-color: #e8e8e8;">
+            <h2 id="title"></h2>
+
+            <p id="date"></p>
+        </div>
+        <div style="margin: 30px;">
+            <div  id="img"></div>
+            <p id="content"></p>
+        </div>
+    </div>
+    <!-- <div class="content">
+            <div style="background-color: #e8e8e8;">
+                <h2 id="title">狼人杀</h2>
+                <p id="date">2019-11-03</p>
+            </div>
+            <div style="margin: 30px;">
+                <div  id="img"><img src="/images/关于桌游1.jpg" alt=""></div>
+                <p id="content"></p>
+            </div>
+        </div> -->
+    <div style="background-color: #9254de;">
+        <div id="footer">
+            <div id="footer-content">
+                <div class="column">
+                    <div style="margin: auto;width: 80px;"><img src="images/地图logo.png" alt="" class="logo"></div>
+                    <div class="text">福州市闽侯县闽江学院</div>
+                </div>
+                <div class="column">
+                    <div style="margin: auto;width: 80px;"><img src="images/信封logo.png" alt="" class="logo"></div>
+                    <div class="text">457444894@qq.con</div>
+                </div>
+                <div class="column">
+                    <div style="margin: auto;width: 80px;"><img src="images/客服logo.png" alt="" class="logo"></div>
+                    <div class="text">18120859689</div>
+                </div>
+                <div class="column">
+                    <div style="margin: auto;width: 120px;"><img src="images/二维码.png" alt="Dogguang的二维码" id="here"></div>
+                    <div class="text">欢迎联系我们体验哦</div>
+                </div>
+            </div>
+            <hr>
+            <div>
+                <p class="text-center">版权所有©Dogguang</p>
+            </div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        
+        $(document).ready(function(){
+            var id = window.location.href.split("?")[1].split("=")[1];
+            function detail(){
+                axios.get('./qyz-data/id'+id+'-detail')
+                .then(function(res){
+                    var ns=res.data;
+                    $('#title').html(ns.title)
+                    $('#date').html(ns.date)
+                    $('#img').html('<img src="'+ns.img+'" alt="">')
+                    $('#content').html(ns.content)
+                })
+                .catch(function(error){alert("请求失败")})
+            }
+            detail(id);
+        })
+    </script>
+</body>
+</html>
